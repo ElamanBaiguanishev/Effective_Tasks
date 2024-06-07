@@ -18,6 +18,11 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Get(':id/history')
+  findHistoryByUser(@Param('id') id: string){
+    return this.userService.getHistory(+id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string): Promise<User> {
     return this.userService.findOne(+id);
