@@ -6,7 +6,7 @@ export class UserController {
   constructor(private readonly userService: UserService) { }
 
   @Patch('fix-problems-byId')
-  async fixProblemsById(@Body() users: number[]): Promise<{ fixed: number }> {
+  async fixProblemsById(@Body('userIds') users: number[]): Promise<{ fixed: number }> {
     const fixed = await this.userService.fixProblemsByUserId(users);
     return { fixed };
   }
